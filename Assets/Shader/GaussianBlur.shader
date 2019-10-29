@@ -6,7 +6,6 @@ Shader "Custom/GaussianBlur"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _SamplingDistance ("Sampling Distance", float) = 2.0
-        _StencilMask ("Stencil Mask", int) = 1
     }
     SubShader
     {
@@ -16,7 +15,7 @@ Shader "Custom/GaussianBlur"
         {
             Stencil
             {
-                Ref [_StencilMask]
+                Ref 1
                 Comp NotEqual
             }
 
