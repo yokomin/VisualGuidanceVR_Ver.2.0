@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    private Vector3 startPosition;
+
+    void Awake(){
+        startPosition = transform.position;
         UnityEngine.XR.InputTracking.disablePositionalTracking = true;
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
+    void Start()
+    {
+        transform.localPosition = startPosition;
+        transform.localRotation = Quaternion.identity;
+    }
 }
