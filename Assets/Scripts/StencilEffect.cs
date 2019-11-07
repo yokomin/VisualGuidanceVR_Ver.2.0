@@ -3,21 +3,21 @@ using UnityEngine.Rendering;
 
 [ExecuteInEditMode, RequireComponent(typeof(Camera))]
 public class StencilEffect : MonoBehaviour {
-    [SerializeField] private Material material;
-    private new Camera camera;
+    public Material material;
+    protected new Camera camera;
 
-    private CommandBuffer buffer;
-    private int cachedScreenImageID;
+    protected CommandBuffer buffer;
+    protected int cachedScreenImageID;
 
-    private void OnEnable() {
+    protected void OnEnable() {
         Init();
         camera.AddCommandBuffer(CameraEvent.AfterForwardAlpha, buffer);        
     }
 
-    private void OnDisable() {
+    protected void OnDisable() {
         camera.RemoveCommandBuffer(CameraEvent.AfterForwardAlpha, buffer);
     }
-    private void Init() {
+    protected void Init() {
         if (cachedScreenImageID == 0) { cachedScreenImageID = Shader.PropertyToID("_tempTex"); }
 
         camera = GetComponent<Camera>();

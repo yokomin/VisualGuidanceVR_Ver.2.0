@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        transform.localPosition = startPosition;
-        transform.localRotation = Quaternion.identity;
+        transform.position = startPosition;
+        transform.rotation = Quaternion.identity;
     }
 }
